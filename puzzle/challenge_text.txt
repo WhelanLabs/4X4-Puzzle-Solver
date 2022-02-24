@@ -1,0 +1,8 @@
+22 sextillion
+
+24 billion
+
+
+A while back, I got a 3X3 puzzle with roughly 24 billion combinations to solve it.  I solved it by writing a computer program.  I thought it interesting that even having the program solve it in reasonable time was tough.  In that vein, I propose the following puzzle with roughly 22 sextillion possible unique combinations.
+
+Arrange the following squares in s 4X4 pattern so that all the arrows match for direction and color.
