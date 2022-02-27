@@ -3,8 +3,8 @@ package com.whelanlabs.puzzle;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import com.whelanlabs.puzzle.TileData.color;
 import com.whelanlabs.puzzle.TileData.direction;
@@ -25,13 +25,12 @@ public class Solver {
 				new Tile(12), new Tile(13), new Tile(14), new Tile(15), new Tile(16)));
 		ArrayList<Tile> sequence = new ArrayList<Tile>();
 
-		System.out.println("Solutions:");
 		checkAndExpand(pool, sequence);
 		long endTime = System.nanoTime();
 		long duration = (endTime - startTime); // divide by 1000000 to get milliseconds.
 		results.put("answers", answers);
-		System.out.println(results.toJSONString());
-		System.out.println("\n\n" + "duration = " + duration / 1000000 + "ms");
+		results.put("duration(ms)", duration / 1000000);
+		System.out.println(results.toString(2));
 	}
 
 	@SuppressWarnings("unchecked")
@@ -42,14 +41,11 @@ public class Solver {
 			if (!isValid(sequence)) {
 				return;
 			} else if (0 == pool.size()) {
-				if (!firstAnswer) {
-					// System.out.println(",");
-				} else {
-					firstAnswer = false;
-				}
-				// System.out.print(sequence);
-				answers.add(sequence);
-				// System.out.print(", [count:" + count + "]");
+				JSONObject answer = new JSONObject();
+				answer.put("sequence", Tile.toJsonAnswerSquenece(sequence));
+				answer.put("count", count);
+				answers.put(answer);
+				//add(answer);
 				return;
 			}
 		}
