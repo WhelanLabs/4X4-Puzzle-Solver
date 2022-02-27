@@ -3,8 +3,8 @@ package com.whelanlabs.puzzle;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import com.whelanlabs.puzzle.TileData.c;
-import com.whelanlabs.puzzle.TileData.d;
+import com.whelanlabs.puzzle.TileData.color;
+import com.whelanlabs.puzzle.TileData.direction;
 
 public class Solver {
 
@@ -30,6 +30,7 @@ public class Solver {
 	public static void checkAndExpand(ArrayList<Tile> pool, ArrayList<Tile> sequence) {
 		// check to see if the existing sequence is valid
 		if (sequence.size() > 1) {
+			count++;
 			if (!isValid(sequence)) {
 				return;
 			} else if (0 == pool.size()) {
@@ -39,6 +40,7 @@ public class Solver {
 					firstAnswer = false;
 				}
 				System.out.print(sequence);
+				System.out.print(", [count:" + count + "]");
 				return;
 			}
 		}
@@ -85,23 +87,23 @@ public class Solver {
 		return true;
 	}
 
-	private static boolean directionMatch(d d1, d d2) {
-		if (d1 == TileData.d.i && d2 == TileData.d.o) {
+	private static boolean directionMatch(direction d1, direction d2) {
+		if (d1 == TileData.direction.in && d2 == TileData.direction.out) {
 			return true;
 		}
-		if (d1 == TileData.d.l && d2 == TileData.d.r) {
+		if (d1 == TileData.direction.left && d2 == TileData.direction.right) {
 			return true;
 		}
-		if (d1 == TileData.d.o && d2 == TileData.d.i) {
+		if (d1 == TileData.direction.out && d2 == TileData.direction.in) {
 			return true;
 		}
-		if (d1 == TileData.d.r && d2 == TileData.d.l) {
+		if (d1 == TileData.direction.right && d2 == TileData.direction.left) {
 			return true;
 		}
 		return false;
 	}
 
-	private static boolean colorMatch(c c1, c c2) {
+	private static boolean colorMatch(color c1, color c2) {
 		return c1 == c2;
 	}
 

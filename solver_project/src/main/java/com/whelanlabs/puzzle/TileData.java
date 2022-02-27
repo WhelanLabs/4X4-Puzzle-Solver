@@ -2,24 +2,24 @@ package com.whelanlabs.puzzle;
 
 public class TileData {
 
-	public enum c { // color
-		r, y, b, g; // red, yellow, blue, green
+	public enum color {
+		red, yellow, blue, green;
 	}
 
-	public enum d { // direction
-		i, o, l, r; // in, out, left, right
+	public enum direction {
+		in, out, left, right;
 	}
 
-	public static c[][] tileColor = { { c.b, c.y, c.g, c.r }, { c.r, c.b, c.y, c.g }, { c.b, c.g, c.r, c.y },
-			{ c.g, c.y, c.r, c.b }, { c.y, c.r, c.b, c.g }, { c.y, c.b, c.g, c.r }, { c.r, c.b, c.g, c.y },
-			{ c.y, c.g, c.b, c.r }, { c.y, c.b, c.r, c.g }, { c.y, c.r, c.g, c.b }, { c.b, c.y, c.r, c.g },
-			{ c.g, c.b, c.g, c.r }, { c.r, c.g, c.y, c.b }, { c.b, c.y, c.g, c.r }, { c.r, c.b, c.y, c.g },
-			{ c.g, c.r, c.y, c.b } };
+	public static color[][] tileColor = { { color.blue, color.yellow, color.green, color.red }, { color.red, color.blue, color.yellow, color.green }, { color.blue, color.green, color.red, color.yellow },
+			{ color.green, color.yellow, color.red, color.blue }, { color.yellow, color.red, color.blue, color.green }, { color.yellow, color.blue, color.green, color.red }, { color.red, color.blue, color.green, color.yellow },
+			{ color.yellow, color.green, color.blue, color.red }, { color.yellow, color.blue, color.red, color.green }, { color.yellow, color.red, color.green, color.blue }, { color.blue, color.yellow, color.red, color.green },
+			{ color.green, color.blue, color.green, color.red }, { color.red, color.green, color.yellow, color.blue }, { color.blue, color.yellow, color.green, color.red }, { color.red, color.blue, color.yellow, color.green },
+			{ color.green, color.red, color.yellow, color.blue } };
 
-	public static d[][] tileDirection = { { d.o, d.o, d.r, d.r }, { d.i, d.r, d.l, d.l }, { d.l, d.i, d.l, d.i },
-			{ d.o, d.o, d.o, d.o }, { d.i, d.i, d.l, d.o }, { d.r, d.r, d.l, d.o }, { d.i, d.l, d.l, d.o },
-			{ d.i, d.l, d.i, d.i }, { d.l, d.o, d.l, d.i }, { d.r, d.r, d.i, d.i }, { d.r, d.o, d.r, d.o },
-			{ d.l, d.o, d.i, d.l }, { d.l, d.r, d.i, d.i }, { d.r, d.i, d.r, d.l }, { d.l, d.r, d.o, d.r },
-			{ d.l, d.o, d.r, d.l } };
+	public static direction[][] tileDirection = { { direction.out, direction.out, direction.right, direction.right }, { direction.in, direction.right, direction.left, direction.left }, { direction.left, direction.in, direction.left, direction.in },
+			{ direction.out, direction.out, direction.out, direction.out }, { direction.in, direction.in, direction.left, direction.out }, { direction.right, direction.right, direction.left, direction.out }, { direction.in, direction.left, direction.left, direction.out },
+			{ direction.in, direction.left, direction.in, direction.in }, { direction.left, direction.out, direction.left, direction.in }, { direction.right, direction.right, direction.in, direction.in }, { direction.right, direction.out, direction.right, direction.out },
+			{ direction.left, direction.out, direction.in, direction.left }, { direction.left, direction.right, direction.in, direction.in }, { direction.right, direction.in, direction.right, direction.left }, { direction.left, direction.right, direction.out, direction.right },
+			{ direction.left, direction.out, direction.right, direction.left } };
 
 }
