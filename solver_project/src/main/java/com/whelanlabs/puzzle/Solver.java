@@ -3,6 +3,9 @@ package com.whelanlabs.puzzle;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
 import com.whelanlabs.puzzle.TileData.color;
 import com.whelanlabs.puzzle.TileData.direction;
 
@@ -11,6 +14,9 @@ public class Solver {
 	static Integer count = 0;
 	static boolean firstAnswer = true;
 	static Integer sideLength = 4;
+	static JSONObject results = new JSONObject();
+	static JSONArray answers = new JSONArray();
+
 
 	public static void main(String[] args) {
 		long startTime = System.nanoTime();
@@ -23,6 +29,8 @@ public class Solver {
 		checkAndExpand(pool, sequence);
 		long endTime = System.nanoTime();
 		long duration = (endTime - startTime); // divide by 1000000 to get milliseconds.
+		results.put("answers", answers);
+		System.out.println(results.toJSONString());
 		System.out.println("\n\n" + "duration = " + duration / 1000000 + "ms");
 	}
 
@@ -35,12 +43,13 @@ public class Solver {
 				return;
 			} else if (0 == pool.size()) {
 				if (!firstAnswer) {
-					System.out.println(",");
+					// System.out.println(",");
 				} else {
 					firstAnswer = false;
 				}
-				System.out.print(sequence);
-				System.out.print(", [count:" + count + "]");
+				// System.out.print(sequence);
+				answers.add(sequence);
+				// System.out.print(", [count:" + count + "]");
 				return;
 			}
 		}
